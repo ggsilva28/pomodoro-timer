@@ -98,12 +98,12 @@ nav ul li.active {
     transition: 300ms;
 }
 
-#timer-container.await{
+#timer-container.await {
     pointer-events: none;
     opacity: 0.7;
 }
 
-#timer-container:hover{
+#timer-container:hover {
     cursor: pointer;
     filter: saturate(1.5);
 }
@@ -128,7 +128,7 @@ nav ul li.active {
     width: 100%;
     height: 100%;
     fill: none;
-    stroke: #240b36;
+    stroke: var(--secondary-color);
     stroke-width: 25;
     stroke-linecap: round;
     transform: translate(13px, 13px);
@@ -154,7 +154,7 @@ nav ul li.active {
     left: 0;
     right: 0;
     top: 0;
-    bottom: 0;  
+    bottom: 0;
     z-index: 9999;
     color: var(--text-color);
 
@@ -164,7 +164,7 @@ nav ul li.active {
     justify-content: center;
 }
 
-#timer-counter{
+#timer-counter {
     font-size: 90px;
     margin-bottom: 30px;
     margin-top: 50px;
@@ -175,7 +175,130 @@ nav ul li.active {
     justify-content: center;
 }
 
-#timer-controller{
+#timer-controller {
     font-size: 30px;
     font-weight: 100;
+}
+
+.modal {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99999;
+    left: 0;
+    bottom: -150vh;
+    transition: 300ms;
+    display: none;
+}
+
+.modal.show {
+    bottom: 0;
+    display: block;
+}
+
+.modal .modal-backdrop {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    background: rgba(var(--primary-color-rgb), .3);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition-delay: 1000ms;
+    transition: 600ms;
+}
+
+.modal .modal-backdrop:hover{
+    cursor: pointer;
+}
+
+.modal.show .modal-backdrop {
+    opacity: 1;
+}
+
+.modal .modal-content {
+    width: 100%;
+    max-width: 720px;
+    background-color: var(--secondary-color-fade);
+
+    position: absolute;
+    top: 20%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 25px;
+    border-radius: 25px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.modal .modal-content .modal-title {
+    margin-bottom: 45px;
+}
+
+.modal .modal-content .modal-title h1 {
+    font-size: 30px;
+    margin: 0;
+}
+
+.modal .modal-content .modal-body h2{
+    color: var(--text-color);
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.timers {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+.input-group label {
+    display: block;
+    color: var(--text-color);
+    margin-bottom: 7px;
+}
+
+.input-group input {
+    height: 25px;
+    padding: 10px;
+    border-radius: 5px 15px 15px 15px;
+    font-weight: bold;
+    border: none;
+}
+
+.colors {
+    margin-top: 25px;
+
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.colors .color-item {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 300ms;
+    border: 1px solid var(--text-color);
+}
+
+.colors .color-item:hover {
+    cursor: pointer;
+    background-color: var(--text-color);
+}
+
+.colors .color-item .color-block {
+    width: 25px;
+    height: 45px;
+    border-radius: 5px;
+}
+
+.colors .color-item .color-block.primary {
+    margin-right: 10px;
 }

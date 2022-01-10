@@ -23,10 +23,10 @@
     <h1>Pomodoro</h1>
 
     <nav>
-        <ul id="timer-types" >
+        <ul id="timer-types">
             <li type="pomodoro" class="active">Pomodoro</li>
-            <li type="short_break" >Short Break</li>
-            <li type="long_break" >Long Break</li>
+            <li type="short_break">Short Break</li>
+            <li type="long_break">Long Break</li>
         </ul>
     </nav>
 
@@ -38,13 +38,13 @@
                 <div id="timer-progress">
                     <svg>
                         <circle></circle>
-                        <circle id="timer-percentage" ></circle>
+                        <circle id="timer-percentage"></circle>
                     </svg>
                     <div id="timer-text">
                         <div id="timer-counter">
                             <div id="timer-minutes">00</div> : <div id="timer-seconds">00</div>
                         </div>
-                        <div id="timer-controller" action="start" > START </div>
+                        <div id="timer-controller" action="start"> START </div>
                     </div>
                 </div>
             </div>
@@ -58,8 +58,41 @@
         <img src="assets/icons/settings.svg" alt="Settings Icon">
     </div>
 
+    <div class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-title">
+                <h1>Customize</h1>
+            </div>
+            
+            <div class="modal-body">
+                <h2>Timers</h2>
+                <div class="timers">
+                    <div class="input-group">
+                        <label for="">Pomodoro</label>
+                        <input name="pomodoro" type="number">
+                    </div>
+                    <div class="input-group">
+                        <label for="">Short Break</label>
+                        <input name="short_break" type="number">
+                    </div>
+                    <div class="input-group">
+                        <label for="">Long</label>
+                        <input name="long_break" type="number">
+                    </div>
+                </div>
+
+                <h2>Colors</h2>
+                <div class="colors">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="js/settings.js" type="module"></script>
     <script src="js/timer.js" type="module"></script>
+    <script src="js/modal.js" type="module"></script>
 </body>
 
 </html>

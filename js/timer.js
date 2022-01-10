@@ -184,3 +184,5 @@ timer.calculatePercentage = () => {
 }
 
 timer.init()
+
+export default timer
