@@ -66,9 +66,10 @@ settings.getUserSetting = () => {
     }
 
     const color = sessionStorage.getItem('color')
-    settings.color_selected = JSON.parse(color)
-
-    settings.setColor()
+    if (color) {
+        settings.color_selected = JSON.parse(color)
+        settings.setColor()
+    }
 }
 
 settings.setColor = () => {
