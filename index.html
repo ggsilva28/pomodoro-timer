@@ -2,8 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="John Doe">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,14 +19,14 @@
 </head>
 
 <body>
-    
+
     <h1>Pomodoro</h1>
 
     <nav>
-        <ul>
-            <li class="active">Pomodoro</li>
-            <li>Short Break</li>
-            <li>Long Break</li>
+        <ul id="timer-types" >
+            <li type="pomodoro" class="active">Pomodoro</li>
+            <li type="short_break" >Short Break</li>
+            <li type="long_break" >Long Break</li>
         </ul>
     </nav>
 
@@ -33,14 +34,17 @@
 
         <div id="timer-container">
 
-            <div class="box">
-                <div class="percent">
+            <div id="timer-wheel">
+                <div id="timer-progress">
                     <svg>
                         <circle></circle>
                         <circle></circle>
                     </svg>
-                    <div class="num">
-                        <h2>90<span>%</span></h2>
+                    <div id="timer-text">
+                        <div id="timer-counter">
+                            <div id="timer-minutes">00</div> : <div id="timer-seconds">00</div>
+                        </div>
+                        <div id="timer-controller" action="start" > START </div>
                     </div>
                 </div>
             </div>

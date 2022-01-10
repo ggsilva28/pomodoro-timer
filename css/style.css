@@ -1,23 +1,22 @@
 :root {
     --primary-color: #c31432;
     --primary-color-rgb: 195, 20, 50;
-
     --secondary-color: #240b36;
     --secondary-color-rgb: 36, 11, 54;
-
     --secondary-color-fade: #2e1541;
     --text-color: #fff;
+    --circle-size: 500px;
+    --circle-percentage: 0;
+    --dashed: 1330;
+    --circle: 47%;
 }
 
 body {
     background: var(--secondary-color);
-
     display: grid;
     place-items: center;
-
-    width: 100vw;
-    height: 100vh;
-
+    width: 100%;
+    height: 100%;
     font-family: 'Comfortaa';
 }
 
@@ -43,6 +42,7 @@ h1 {
     color: var(--text-color);
     font-weight: 700;
     font-size: 35px;
+    margin: 35px;
 }
 
 nav {
@@ -84,81 +84,45 @@ nav ul li:hover {
 
 nav ul li.active {
     background-color: var(--primary-color);
-    box-shadow: rgba(var(--primary-color-rgb), 0.25) 0px 13px 27px -5px, rgba(var(--primary-color-rgb), .3) 0px 8px 16px -8px;
 }
 
 #timer-container {
-    background-color: var(--secondary-color-fade);
-
-    width: 40vw;
-    height: 40vw;
+    width: var(--circle-size);
+    height: var(--circle-size);
+    margin: 50px;
+    padding: 25px;
     border-radius: 50%;
     display: grid;
     place-content: center;
+    background-color: var(--secondary-color-fade);
+    transition: 300ms;
 }
 
-.percent {
+#timer-container:hover{
+    cursor: pointer;
+    filter: saturate(1.5);
+}
+
+#timer-progress {
     position: relative;
-    width: 35vw;
-    height: 35vw;
+    width: calc(var(--circle-size) - 50px);
+    height: calc(var(--circle-size) - 50px);
     border-radius: 50%;
     z-index: 1000;
 }
 
-.percent .num {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-}
-
-.percent .num h2 {
-    color: #777;
-    font-weight: 700;
-    font-size: 40px;
-    transition: 0.5s;
-}
-
-
-.percent .num h2 span {
-    color: #777;
-    font-size: 24px;
-    transition: 0.5s;
-}
-
-
-.text {
+#timer-progress svg {
     position: relative;
-    color: #777;
-    margin-top: 20px;
-    font-weight: 700;
-    font-size: 18px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: 0.5s;
-}
-
-svg {
-    position: relative;
-    width: 35vw;
-    height: 35vw;
+    width: calc(var(--circle-size) - 50px);
+    height: calc(var(--circle-size) - 50px);
     z-index: 1000;
 }
 
-:root {
-    --dashed: 1403;
-    --circle: 47.3%;
-}
-
-svg circle {
+#timer-progress svg circle {
     width: 100%;
     height: 100%;
     fill: none;
+    stroke: #240b36;
     stroke-width: 25;
     stroke-linecap: round;
     transform: translate(13px, 13px);
@@ -167,14 +131,44 @@ svg circle {
     r: var(--circle);
 }
 
-
-
-svg circle:nth-child(2) {
+#timer-progress svg circle:nth-child(2) {
     stroke-dasharray: var(--dashed);
     stroke-dashoffset: var(--dashed);
 }
 
-svg circle:nth-child(2) {
-    stroke-dashoffset: calc(var(--dashed) - (var(--dashed) * 365) / 100);
+#timer-progress svg circle:nth-child(2) {
+    transition: 500ms;
+    stroke-dashoffset: calc(var(--dashed) - (var(--dashed) * var(--circle-percentage)) / 100);
     stroke: var(--primary-color);
+}
+
+#timer-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;  
+    z-index: 9999;
+    color: var(--text-color);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#timer-counter{
+    font-size: 90px;
+    margin-bottom: 30px;
+    margin-top: 50px;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+#timer-controller{
+    font-size: 30px;
+    font-weight: 100;
 }
