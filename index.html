@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <title>Pomodoro timer</title>
+</head>
+
+<body>
+    
+    <h1>Pomodoro</h1>
+
+    <nav>
+        <ul>
+            <li class="active">Pomodoro</li>
+            <li>Short Break</li>
+            <li>Long Break</li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <div id="timer-container">
+
+            <div class="box">
+                <div class="percent">
+                    <svg>
+                        <circle></circle>
+                        <circle></circle>
+                    </svg>
+                    <div class="num">
+                        <h2>90<span>%</span></h2>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <div class="config-btn">
+        <img src="assets/icons/settings.svg" alt="Settings Icon">
+    </div>
+
+    <script src="js/settings.js" type="module"></script>
+    <script src="js/timer.js" type="module"></script>
+</body>
+
+</html>
