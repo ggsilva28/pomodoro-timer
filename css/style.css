@@ -4,7 +4,7 @@
     --secondary-color: #240b36;
     --secondary-color-rgb: 36, 11, 54;
     --secondary-color-fade: #2e1541;
-    --text-color: #fff;
+    --text-color: #ffffff;
     --circle-size: 500px;
     --circle-percentage: 0;
     --dashed: 1330;
@@ -98,6 +98,11 @@ nav ul li.active {
     transition: 300ms;
 }
 
+#timer-container.await{
+    pointer-events: none;
+    opacity: 0.7;
+}
+
 #timer-container:hover{
     cursor: pointer;
     filter: saturate(1.5);
@@ -116,6 +121,7 @@ nav ul li.active {
     width: calc(var(--circle-size) - 50px);
     height: calc(var(--circle-size) - 50px);
     z-index: 1000;
+    transform: rotate(-90deg);
 }
 
 #timer-progress svg circle {
@@ -138,6 +144,7 @@ nav ul li.active {
 
 #timer-progress svg circle:nth-child(2) {
     transition: 500ms;
+    transition-timing-function: linear;
     stroke-dashoffset: calc(var(--dashed) - (var(--dashed) * var(--circle-percentage)) / 100);
     stroke: var(--primary-color);
 }
