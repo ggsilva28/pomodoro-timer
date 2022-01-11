@@ -83,7 +83,7 @@ timer.allowReset = () => {
 }
 
 timer.countDown = () => {
-    if (timer.seconds == 0) {
+    if (timer.seconds <= 0) {
         timer.allowReset()
         timer.stop()
     }
@@ -91,7 +91,7 @@ timer.countDown = () => {
     timer.seconds = timer.seconds - 0.1
     if (document.body.classList.contains('run')) {
         timer.update()
-    }else{
+    } else {
         timer.stop()
     }
 }
@@ -162,6 +162,9 @@ timer.pausePercentage = () => {
 }
 
 timer.setCirclePercentage = (percentage) => {
+    if(percentage > 100)
+        percentage = 100
+
     const root = document.querySelector(':root');
     root.style.setProperty('--circle-percentage', percentage);
 }

@@ -36,11 +36,11 @@ settings.colors = [
         text: '#ffffff'
     },
     {
-        primary: '#66ff00',
-        primary_rgb: '102, 255, 0',
-        secondary: '#a80077',
-        secondary_rgb: '168, 0, 119',
-        secondary_fade: '#B73790',
+        primary: '#59C173',
+        primary_rgb: '89, 193, 115',
+        secondary: '#5D26C1',
+        secondary_rgb: '93, 38, 193',
+        secondary_fade: '#9321D9',
         text: '#ffffff'
     },
     {
